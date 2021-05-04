@@ -2,7 +2,7 @@
     package="com.example.tmdb">
 	<uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="tmdb"
+        android:label="Tmdb"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
