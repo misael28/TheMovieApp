@@ -1,14 +1,15 @@
 class Movies {
-  String img;
-  String title;
-  String releaseDate;
   List<Movie> movies;
 
-  Movies.fromJson(Map<String, dynamic> json){
-    var arrayMovies = json['results'];
-    movies = arrayMovies.map( (item) {
-      return Movies.fromJson(item['results']);
-    }).toList();
+  Movies({this.movies});
+
+  factory Movies.fromJson(Map<String, dynamic> json){
+    var arrayMovie = json['results'] as List;
+    List<Movie> movieList = arrayMovie.map( (item) => Movie.fromJson(item)).toList();
+
+    return Movies(
+      movies: movieList
+    );
   }
 }
 
@@ -20,6 +21,6 @@ class Movie {
   Movie.fromJson(Map<String, dynamic> json) {
     releaseDate = json['release_date'];
     title = json['title'];
-    img = json['poster_path'];
+    img = "https://image.tmdb.org/t/p/w300"+json['poster_path'];
   } 
 }

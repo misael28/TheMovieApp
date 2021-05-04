@@ -40,7 +40,7 @@ class _MovieViewState extends State<MovieView> {
               )
             ),
             child:
-             FutureBuilder<List<Movie>>(
+             FutureBuilder<Movies>(
               future: controller.movies,
               builder: (context, snapshot) {
                 if(snapshot.connectionState!= ConnectionState.done){
@@ -56,17 +56,17 @@ class _MovieViewState extends State<MovieView> {
                   return Container(
                     child: 
                     ListView.builder(
-                         itemCount: 10,
+                         itemCount: snapshot.data.movies.length,
                          scrollDirection: Axis.horizontal,
                          itemBuilder: (context, index) {
                         return Container(
                           margin: EdgeInsets.all(50),
                           width: 400,
-                          height: 200,
+                          height: 300,
                           child:
-                          Image.network(snapshot.data[index].img,
-                            height: 400,
-                            width:  200,
+                          Image.network(snapshot.data.movies[index].img,
+                            width:  400,
+                            height: 200,
                             fit: BoxFit.cover),
                         );
                     }

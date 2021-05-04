@@ -4,7 +4,7 @@ import 'movie.dart';
 class MovieController {
   final model = MovieModel();
 
-  Future<List<Movie>> get movies => model.movies;
+  Future<Movies> get movies => model.movies;
 
   loadMovies(){
     model.fetcthMovie();  
