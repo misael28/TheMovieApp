@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './tmdb_view.dart';
+import './movie_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TmdbView()
+      home: MovieView()
     );
   }
 }
