@@ -17,10 +17,12 @@ class Movie {
   String img;
   String title;
   String releaseDate;
+  num voteAverage;
 
   Movie.fromJson(Map<String, dynamic> json) {
     releaseDate = json['release_date'];
     title = json['title'];
     img = "https://image.tmdb.org/t/p/w300"+json['poster_path'];
+    voteAverage = json['vote_average']; 
   } 
 }
