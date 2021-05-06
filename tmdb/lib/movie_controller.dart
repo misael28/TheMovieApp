@@ -9,4 +9,12 @@ class MovieController {
   loadMovies(){
     model.fetcthMovie();  
   }
+
+  loadTopMovies(){
+    model.fetchTopMovie();
+  }
+
+  loadPopularMovies(){
+    model.fetchPopularMovie();
+  }
 }

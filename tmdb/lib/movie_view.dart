@@ -10,11 +10,16 @@ class MovieView extends StatefulWidget {
 class _MovieViewState extends State<MovieView> {
 
   final controller = MovieController();
+  final controllerTopMovie = MovieController();
+  final controllerPopularMovie = MovieController();
+
   int indexSize = 0;
   @override
   void initState() {
     super.initState();
     controller.loadMovies();
+    controllerTopMovie.loadTopMovies();
+    controllerPopularMovie.loadPopularMovies();
   }
   
   @override
@@ -22,7 +27,8 @@ class _MovieViewState extends State<MovieView> {
     final Size sizeScreen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Image.network("https://icons8.com.br/icon/111166/pipoca"),
+        title: Text("Movies", 
+          style: TextStyle(color: Colors.white)),
         centerTitle: true,
         backgroundColor: backGroundColor,
       ),
@@ -40,9 +46,9 @@ class _MovieViewState extends State<MovieView> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              MovieContainer(sizeScreen,"Upcoming movies"),
-              MovieContainer(sizeScreen,"Top rated"),
-              MovieContainer(sizeScreen,"Action")
+              MovieContainer(sizeScreen,"Upcoming", controller),
+              MovieContainer(sizeScreen,"Top rated", controllerTopMovie),
+              MovieContainer(sizeScreen,"Popular", controllerPopularMovie)
               ],
           ),
         ),
@@ -50,7 +56,7 @@ class _MovieViewState extends State<MovieView> {
     );
   }
 
-  Widget MovieContainer(Size sizeScreen, String sessionText){
+  Widget MovieContainer(Size sizeScreen, String sessionText, MovieController controller){
     return Column(
       children: [
         Text(
@@ -97,11 +103,6 @@ class _MovieViewState extends State<MovieView> {
                                         ),
                                       ),
                                     ),
-                                    // child:
-                                    // Image.network(snapshot.data.movies[index].img,
-                                    //   width: sizeScreen.width * 0.4,
-                                    //   height: sizeScreen.height * 0.4,
-                                    //   fit: BoxFit.cover),
                                   ),
                                    Row(
                                      children: [
