@@ -7,7 +7,7 @@ class MovieController {
   Future<Movies> get movies => model.movies;
 
   loadMovies(){
-    model.fetcthMovie();  
+    model.fetcthMovie();
   }
 
   loadTopMovies(){

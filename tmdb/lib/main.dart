@@ -11,7 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MovieDetails()
+      title: "Academy Flix App",
+      home: MovieView(),
+      routes: {
+        "MovieDetails" : (context) => MovieDetailsScreen(),
+        "Home" : (context) => MovieView(),
+        },
     );
   }
 }

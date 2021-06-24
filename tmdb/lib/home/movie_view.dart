@@ -70,7 +70,7 @@ class _MovieViewState extends State<MovieView> {
         ),
         Container(
                   child:
-                   FutureBuilder<Movies>(
+                  FutureBuilder<Movies>(
                     future: controller.movies,
                     builder: (context, snapshot) {
                       if(snapshot.connectionState!= ConnectionState.done){
@@ -92,17 +92,26 @@ class _MovieViewState extends State<MovieView> {
                                itemBuilder: (context, index) {
                               return Column(
                                 children: [
-                                  Container(
-                                    width: sizeScreen.width * 0.5,
-                                    height: sizeScreen.height * 0.4,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      image: DecorationImage(
-                                        image: NetworkImage(
-                                          snapshot.data.movies[index].img
+                                  InkWell(
+                                  child: Container(
+                                      width: sizeScreen.width * 0.5,
+                                      height: sizeScreen.height * 0.4,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        image: DecorationImage(
+                                          image: NetworkImage(
+                                            snapshot.data.movies[index].img
+                                          ),
                                         ),
                                       ),
                                     ),
+                                    onTap: (){ 
+                                      Navigator.pushNamed(
+                                        context, 
+                                        "MovieDetails",
+                                        arguments: snapshot.data.movies[index].id
+                                        );
+                                      },
                                   ),
                                 ],
                               );

@@ -14,7 +14,7 @@ class Movies {
 }
 
 class Movie {
-  String id;
+  int id;
   String img;
   Movie.fromJson(Map<String, dynamic> json) {
     img = "https://image.tmdb.org/t/p/w300"+json['poster_path'];
@@ -23,8 +23,8 @@ class Movie {
 }
 
 class MovieDetails {
-  String id;
-  String backDropImg;
+  int id;
+  String img;
   String description;
   String title;
   String releaseDate;
@@ -33,7 +33,7 @@ class MovieDetails {
    MovieDetails.fromJson(Map<String, dynamic> json) {
     releaseDate = json['release_date'];
     title = json['title'];
-    backDropImg = "https://image.tmdb.org/t/p/w300"+json['backdrop_path'];
+    img = "https://image.tmdb.org/t/p/w300"+json['backdrop_path'];
     voteAverage = json['vote_average']; 
     id = json['id'];
     description = json['overview'];

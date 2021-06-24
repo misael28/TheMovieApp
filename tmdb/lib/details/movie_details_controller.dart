@@ -1,13 +1,11 @@
-import 'package:tmdb/details/movie_details_view.dart';
-
 import '../model/movie_model.dart';
-
-class MovieController {
+import '../home/movie.dart';
+class MovieDetailsController {
   final model = MovieDetail();
 
   Future<MovieDetails> get details => model.details;
 
-  loadMovies(int id){
+  loadMovieDetails(int id){
     model.fetchMovieDetails(id);  
   }
 
