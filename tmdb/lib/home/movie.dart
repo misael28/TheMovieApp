@@ -14,15 +14,28 @@ class Movies {
 }
 
 class Movie {
+  String id;
   String img;
+  Movie.fromJson(Map<String, dynamic> json) {
+    img = "https://image.tmdb.org/t/p/w300"+json['poster_path'];
+    id = json['id'];
+  } 
+}
+
+class MovieDetails {
+  String id;
+  String backDropImg;
+  String description;
   String title;
   String releaseDate;
   num voteAverage;
 
-  Movie.fromJson(Map<String, dynamic> json) {
+   MovieDetails.fromJson(Map<String, dynamic> json) {
     releaseDate = json['release_date'];
     title = json['title'];
-    img = "https://image.tmdb.org/t/p/w300"+json['poster_path'];
+    backDropImg = "https://image.tmdb.org/t/p/w300"+json['backdrop_path'];
     voteAverage = json['vote_average']; 
+    id = json['id'];
+    description = json['overview'];
   } 
 }

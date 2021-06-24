@@ -61,9 +61,10 @@ class _MovieViewState extends State<MovieView> {
       children: [
         Text(
           sessionText,
+          textAlign: TextAlign.left,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 30,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ), 
         ),
