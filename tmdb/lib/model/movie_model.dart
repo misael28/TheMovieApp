@@ -3,18 +3,28 @@ import '../api/api.dart';
 
 class MovieModel {  
   Future<Movies> _movies;
-
+ 
   Future<Movies> get movies => _movies;
 
-  fetcthMovie(){
-   _movies = API().fetchMovies();
+    fetcthMovie(){
+     _movies = API().fetchMovies();
+    }
+  
+    fetchTopMovie(){
+     _movies = API().fetchTopMovies();
+    }
+  
+    fetchPopularMovie(){
+     _movies = API().fetchPopularMovies();
+    }
   }
 
-  fetchTopMovie(){
-   _movies = API().fetchTopMovies();
-  }
+  class MovieDetail {
+    Future<MovieDetails> _details;
 
-  fetchPopularMovie(){
-   _movies = API().fetchPopularMovies();
-  }
+    Future<MovieDetails> get details => _details;
+  
+    fetchMovieDetails(int id){
+      _details = API().getMovieDetails(id);
+    }  
 }
