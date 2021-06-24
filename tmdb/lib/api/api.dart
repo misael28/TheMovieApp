@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'movie.dart';
+import '../home/movie.dart';
 
 class API {
   Future<Movies> fetchMovies() async {

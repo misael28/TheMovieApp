@@ -1,5 +1,5 @@
-import 'movie.dart';
-import 'api.dart';
+import '../home/movie.dart';
+import '../api/api.dart';
 
 class MovieModel {  
   Future<Movies> _movies;

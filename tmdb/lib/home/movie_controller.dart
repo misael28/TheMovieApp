@@ -1,4 +1,4 @@
-import 'movie_model.dart';
+import '../model/movie_model.dart';
 import 'movie.dart';
 
 class MovieController {

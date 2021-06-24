@@ -92,7 +92,6 @@ class _MovieViewState extends State<MovieView> {
                               return Column(
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 10),
                                     width: sizeScreen.width * 0.5,
                                     height: sizeScreen.height * 0.4,
                                     decoration: BoxDecoration(
@@ -104,44 +103,6 @@ class _MovieViewState extends State<MovieView> {
                                       ),
                                     ),
                                   ),
-                                   Row(
-                                     children: [
-                                       Text(snapshot.data.movies[index].title, 
-                                          style: 
-                                          TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                          ),
-                                          ),
-                                          Text(' ${snapshot.data.movies[index].voteAverage}', 
-                                          style: 
-                                          TextStyle(
-                                                color: Colors.yellow,
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                          ),
-                                          )
-                                        ],
-                                   ),
-                                  Row(
-                                    children: [
-                                      Text("Release ",
-                                      style: 
-                                      TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.bold,
-                                      )),
-                                      Text(snapshot.data.movies[index].releaseDate, 
-                                      style: 
-                                      TextStyle(
-                                        color: Colors.yellow,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                      ),),
-                                    ],
-                                  )
                                 ],
                               );
                           }
