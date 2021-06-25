@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import "../details/movie_details_controller.dart";
 import "../home/movie.dart";
+
+Color backGroundColor = Color(0xff34343c);
 class MovieDetailsScreen extends StatefulWidget {
   @override
   _MovieDetailsScreenState createState() => _MovieDetailsScreenState();
@@ -17,6 +19,16 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     }
     return Scaffold(
       body: Container(
+         decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+                colors: [
+                  Colors.black,
+                  backGroundColor,
+                  ]
+                )
+              ),
         child: FutureBuilder<MovieDetails>(
           future: controller.details,
           builder: (context, snapshot) {
@@ -37,6 +49,16 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                 Column(
                   children: [
                     Container(
+                      child: Text(
+                        snapshot.data.title,
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.1,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        )
+                        ),
+                    ),
+                    Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.3,
                       decoration: BoxDecoration(
@@ -47,15 +69,43 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                         )
                       ),
                     ),
-                    ButtonTheme(
-                      minWidth:20,
-                      height: 20,
-                    child: ElevatedButton(
-                        onPressed: (){
-                          Navigator.pushNamed(context, "Home");
-                        }, 
-                        child: Text("Back")),
-                    )
+                     Container(
+                      child: Text(
+                        snapshot.data.releaseDate,
+                        style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.white,
+                        )
+                        ),
+                    ),
+                     Container(
+                      child: Text(
+                        '${snapshot.data.voteAverage}',
+                        style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.yellow,
+                        )
+                        ),
+                    ),
+                    Container(
+                      child: Text(
+                        snapshot.data.description,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                         fontWeight: FontWeight.normal,
+                        color: Colors.white,
+                        )
+                        ),
+                    ),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.black54)),
+                      onPressed: (){
+                        Navigator.pushNamed(context, "Home");
+                      }, 
+                    child: Text("Back")),
                   ],
                 )
               );
